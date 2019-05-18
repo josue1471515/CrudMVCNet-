@@ -1,0 +1,45 @@
+﻿@model crudNetMvc.Models.ViewModels.PersonViewModel
+
+@{
+    ViewBag.Title = "Crear Persona";
+}
+
+
+@using (Html.BeginForm("CreatePerson", "Persons", FormMethod.Post))
+{
+ 
+    <h2>@ViewBag.Title </h2>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <div>
+                    @Html.LabelFor(d => d.FirstName)
+                    @Html.TextBoxFor(d => d.FirstName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.FirstName, null, new { @class = "danger" })
+                </div>
+            </div>
+       
+            @Html.LabelFor(d => d.LastName)
+            @Html.ValidationMessageFor(d => d.LastName)
+            @Html.TextBoxFor(d => d.LastName, new { @class = "form-control" })
+
+            @Html.LabelFor(d => d.Address)
+            @Html.TextBoxFor(d => d.Address, new { @class = "form-control" })
+
+            @Html.LabelFor(d => d.City)
+            @Html.TextBoxFor(d => d.City, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-1 col-md-2"  style="text-align : right; padding:5px">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+  
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

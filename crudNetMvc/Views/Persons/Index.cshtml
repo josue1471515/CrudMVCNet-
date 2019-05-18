@@ -1,0 +1,45 @@
+﻿@model List <crudNetMvc.Models.ViewModels.ListPersonViewModel>
+
+@{
+    ViewBag.Title = "Listar Clientes";
+}
+
+    <h2>@ViewBag.Title</h2>
+
+    <div class="row" style="text-align:right;padding:7px">
+        <a href="~/Persons/CreatePerson" class="btn btn-primary" >Nuevo Cliente</a>
+    </div>
+<div class="row">
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Ciudad
+                </th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+        <tr>
+            <td>@oElemento.PersonID</td>
+            <td>@oElemento.FirstName</td>
+            <td>@oElemento.LastName</td>
+            <td>@oElemento.City</td>
+            <td>
+                <a class="btn btn-default" href=@Url.Action("EditPerson", "Persons", new { PersonID = @oElemento.PersonID })>Editar</a>
+                <a class="btn btn-danger" href=@Url.Action("DeletePerson", "Persons", new { PersonID = @oElemento.PersonID })>Eliminar</a>
+            </td>
+        </tr>
+            }
+        </table>
+    </div>
+
+</div>
